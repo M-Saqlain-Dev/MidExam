@@ -30,7 +30,22 @@ function App() {
   ];
   return (
     <>
+      <h1>Filters: </h1>
+      <label htmlFor="">Name: </label>
+      <input type="text" name='Name' placeholder='Enter Name'/>
+      <label htmlFor="">Age: </label>
+      <input type="text" name='Age' placeholder='Enter Age'/>
+      <label htmlFor="">City: </label>
 
+      <br />
+      <br />
+
+      filteredData = ()=>{
+        sampleData.filter((item)=>{
+          
+        })
+        
+      }
 
       <table border={1} cellPadding={10}>
         <th>
