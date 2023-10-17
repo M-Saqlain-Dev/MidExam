@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   
-  const [state, setState] = useState(
+  let [filter, setFilter] = useState(
     {
       name: '',
       age: '',
@@ -38,24 +36,33 @@ function App() {
   
   ];
 
-  const reSet = ()=>{
-    setState({
-      name: '',
-      age: '',
-      city: '',
-      occupation: ''
-    })
-  }
-  
+  let filteredData= [];
+  function callme(){
+    const { name, age, city, occupation } = filter;
+    let filteredData = sampleData;
+    if (name) {
+      filteredData.push(filteredData.filter((item) => item.name.toLowerCase().includes(name.toLowerCase())));
+    }
+    if (age) {
+      filteredData.push(filteredData.filter((item) => item.age === age));
+    }
+    if (city) {
+      filteredData.push(filteredData.filter((item) => item.city.toLowerCase().includes(city.toLowerCase())));
+    }
+    if (occupation) {
+      filteredData.push(filteredData.filter((item) => item.occupation.toLowerCase().includes(occupation.toLowerCase())));
+    }
+    console.log(filteredData);
+  }  
   return (
     <>
       <h1>Filters: </h1>
-      <label htmlFor="">Name: </label>
-      <input type="text" name='Name' placeholder='Enter Name'/>
-      <label htmlFor="">Age: </label>
-      <input type="text" name='Age' placeholder='Enter Age'/>
-      <label htmlFor="">City: </label>
-      <select name="City" id="">
+      <label>Name: </label>
+      <input type="text" name='Name' onChange={filter.name=this.target.value} placeholder='Enter Name'/>
+      <label>Age: </label>
+      <input type="text" name='Age' onChange={filter.age=this.target.value} placeholder='Enter Age'/>
+      <label>City: </label>
+      <select name="City" onChange={filter.city=this.target.value}>
         <option value="">Select City</option>
         <option value="">New York</option>
         <option value="">San Francisco</option>
@@ -68,8 +75,8 @@ function App() {
         <option value="">Denver</option>
         <option value="">Atlanta</option>
       </select>
-      <label htmlFor="">Occupation: </label>
-      <select name="Occupation" id="">
+      <label>Occupation: </label>
+      <select name="Occupation" onChange={filter.occupation=this.target.value}>
         <option value="">Select Occupation</option>
         <option value="">Engineer</option>
         <option value="">Designer</option>
@@ -82,20 +89,24 @@ function App() {
         <option value="">Marketing Manager</option>
         <option value="">Entrepreneur</option>
       </select>
-
-      <button onClick={reSet}>Reset</button>
-
       
+      <br />
+      <br />
+
+      <button>Reset</button>
+      <button onClick={callme}>Apply Filter</button>
 
       <table border={1} cellPadding={10}>
-        <th>
-          <td>Id</td>
-          <td>Name</td>
-          <td>Age</td>
-          <td>City</td>
-          <td>Occupation</td>
-        </th>
-      </table>
+          {filteredData?.map((item) => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td>{item.age}</td>
+              <td>{item.city}</td>
+              <td>{item.occupation}</td>
+            </tr>
+          ))}
+        </table>
     </>
   )
 }
