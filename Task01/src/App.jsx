@@ -36,6 +36,33 @@ function App() {
       <label htmlFor="">Age: </label>
       <input type="text" name='Age' placeholder='Enter Age'/>
       <label htmlFor="">City: </label>
+      <select name="City" id="">
+        <option value="">Select City</option>
+        <option value="">New York</option>
+        <option value="">San Francisco</option>
+        <option value="">Chicago</option>
+        <option value="">Los Angeles</option>
+        <option value="">Houston</option>
+        <option value="">Miami</option>
+        <option value="">Seattle</option>
+        <option value="">Boston</option>
+        <option value="">Denver</option>
+        <option value="">Atlanta</option>
+      </select>
+      <label htmlFor="">Occupation: </label>
+      <select name="Occupation" id="">
+        <option value="">Select Occupation</option>
+        <option value="">Engineer</option>
+        <option value="">Designer</option>
+        <option value="">Accountant</option>
+        <option value="">Teacher</option>
+        <option value="">Doctor</option>
+        <option value="">Artist</option>
+        <option value="">Software Engineer</option>
+        <option value="">Lawyer</option>
+        <option value="">Marketing Manager</option>
+        <option value="">Entrepreneur</option>
+      </select>
 
       <br />
       <br />
