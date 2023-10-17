@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+  
   const sampleData = [
 
     { id: 1, name: 'John Doe', age: 25, city: 'New York', occupation: 'Engineer' },
@@ -29,7 +30,9 @@ function App() {
   ];
   return (
     <>
-      <table>
+
+
+      <table border={1} cellPadding={10}>
         <th>
           <td>Id</td>
           <td>Name</td>
@@ -37,9 +40,6 @@ function App() {
           <td>City</td>
           <td>Occupation</td>
         </th>
-        <tr>
-          <td></td>
-        </tr>
       </table>
     </>
   )
