@@ -5,6 +5,15 @@ import './App.css'
 
 function App() {
   
+  const [state, setState] = useState(
+    {
+      name: '',
+      age: '',
+      city: '',
+      occupation: ''
+    }
+  );
+  
   const sampleData = [
 
     { id: 1, name: 'John Doe', age: 25, city: 'New York', occupation: 'Engineer' },
@@ -28,6 +37,16 @@ function App() {
     { id: 10, name: 'Ivy Adams', age: 33, city: 'Atlanta', occupation: 'Entrepreneur' },
   
   ];
+
+  const reSet = ()=>{
+    setState({
+      name: '',
+      age: '',
+      city: '',
+      occupation: ''
+    })
+  }
+  
   return (
     <>
       <h1>Filters: </h1>
@@ -64,15 +83,9 @@ function App() {
         <option value="">Entrepreneur</option>
       </select>
 
-      <br />
-      <br />
+      <button onClick={reSet}>Reset</button>
 
-      filteredData = ()=>{
-        sampleData.filter((item)=>{
-          
-        })
-        
-      }
+      
 
       <table border={1} cellPadding={10}>
         <th>
